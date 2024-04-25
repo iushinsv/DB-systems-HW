@@ -11,12 +11,44 @@
 
 Таким образом, BigchainDB представляет собой инновационное решение в области децентрализованных баз данных, которое сочетает в себе преимущества технологий блокчейн и баз данных для обеспечения эффективного хранения и управления цифровыми активами.
 
-## 2. Инструменты для взаимодействия с BigchainDB
+## 2. Инструменты для взаимодействия
 
 **BigchainDB предоставляет официальный драйвер** для взаимодействия с их базой данных, который называется **["BigchainDB Python Driver"](https://github.com/bigchaindb/bigchaindb-driver)**. Этот драйвер позволяет разработчикам создавать приложения, взаимодействующие с BigchainDB через Python.
 
+## 3. Вatabase engine
+BigchainDB использует MongoDB в качестве database engine для хранения метаданных и информации о транзакциях.
+**подробнее** [здесь](http://docs.bigchaindb.com/en/latest/query.html)
 
-Описание/ инструкция выполнения домашнего задания:
+## 4. Deploying database
+### 4.1 Deploying BigchainDB via Docker
+Для этого воспользуемся образом [bigchainDB/bigchainDB](https://hub.docker.com/r/bigchaindb/bigchaindb)
+
+Сделаем pull данного образа в наш docker через команду:
+**```docker pull bigchaindb/bigchaindb```**
+![](pull_bigchaindb_image_command.png)
+
+Склонируем репозиторий из описания образа bigchaindb на [dockerhub](https://hub.docker.com/):
+**```git clone https://github.com/bigchaindb/bigchaindb.git```**
+![](clonning_bibchaindb_rep_comand.png)
+Таким образом, после перехода в склонированный репозиторий, получим следующий каталог:
+![](new_rep.png)
+Запустим контейнеры через **docker-compose** командой: 
+**```docker-compose up -d```**
+![](docker-compose_up_-d_comand.png)
+проверим, что действительно запустили контейнеры:
+**```sudo docker ps```**
+![](sudo_docker_ps.png)
+Теперь перейдем на **```http://localhost:9984/```**, и получаем:
+![](reach_the_localhost_9984.png)
+
+Таким образом, действительно развернули **собственную базу данных**
+
+### 4.2 Установка BigchainDB Python Driver
+Установим драйвер через команду pip:
+**```pip install bigchaindb_driver```**
+
+
+Описание/ инструкция выполнения д***омашнего задания:
 1.	В общедоступном файле в строке с вашим ФИО указано название СУБД и ее модель. 
 2.	Вам необходимо сделать отчет и ответить на следующие вопросы. Ответы должны быть развернуты и желательно с рисунками или примерами кода.  
 a.	История развития СУБД
